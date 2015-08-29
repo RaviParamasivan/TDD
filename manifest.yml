@@ -2,5 +2,4 @@ applications:
 - name: DEVOPES
   memory: 1024M
   host: jigarthanda
-  domain: devops.io
-  path: target/TestDrivenDevelopment.war
+  path: TestDrivenDevelopment/target/TestDrivenDevelopment.war
