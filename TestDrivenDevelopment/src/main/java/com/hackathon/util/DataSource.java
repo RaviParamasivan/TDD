@@ -54,7 +54,9 @@ public class DataSource {
 		Connection connect = null; 
 		PreparedStatement preparedStatement = null; 
 		try {
-			connect=readDataBase();	
+			
+			connect=readDataBase();
+			System.out.println("connect          >"+connect);
 			preparedStatement = connect.prepareStatement("INSERT INTO customer_commands(title,commands,category,module_name,issensitive,user_mail_id,dev_group_id,created_date) values (?, ?, ?, ?, ? , ?, ?, ?)"); 
 			preparedStatement.setString(1, userComments.getTitle()); 
 			preparedStatement.setString(2, userComments.getComments()); 
@@ -65,7 +67,9 @@ public class DataSource {
 			preparedStatement.setString(7, userComments.getDevGroupId()); 
 			preparedStatement.setDate(8, (java.sql.Date) new Date()); 
 			preparedStatement.executeUpdate();
+			connect.commit();
 		}catch (Exception e) {
+			e.printStackTrace();
 			System.out.println("Exception while updating the module:  "+e);
 		}finally{
 			if (preparedStatement != null) {
