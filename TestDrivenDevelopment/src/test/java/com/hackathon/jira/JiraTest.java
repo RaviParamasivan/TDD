@@ -16,7 +16,7 @@ public class JiraTest {
 	
 	public UserComments getObj() throws JsonParseException, JsonMappingException, IOException{
 		ObjectMapper om=new ObjectMapper();
-		String inputObj="{\"feedBackDesc\":\"2\",\"feedBackGroup\":\"3\",\"feedBackTitle\":\"1\"}";
+		String inputObj="{\"categaroy\":\"2\",\"moduleName\":\"3\",\"comments\":\"1\"}";
 		return om.readValue(inputObj, UserComments.class);
 	}
 	
