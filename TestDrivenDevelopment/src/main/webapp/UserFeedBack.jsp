@@ -36,7 +36,7 @@ Feedback Description  : <input type="text" id ="comments"></br>
      }});
 } 
  $.ajax({url: "index.jsp?type=module", success: function(result){
-     //alert(result);
+     alert(result);
      $("#selectVal").html("<select id ='moduleName'>"+result+"</select>");
 	 
  }});
