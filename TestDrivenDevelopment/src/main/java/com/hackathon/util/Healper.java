@@ -15,8 +15,8 @@ public class Healper {
 				userComments.setUserMailId("rsnvinesh@gamil.com");
 				userComments.setSensitive(true);
 
-				System.out.println("userComments               "+userComments);
-				email.createJiraTicket(userComments);
+				System.out.println("userComments          >     "+userComments);
+				//email.createJiraTicket(userComments);
 				updateCustomeComments.updateCustomeComments(userComments);
 			}
 		}catch(Exception e){
