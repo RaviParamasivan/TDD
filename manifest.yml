@@ -3,4 +3,4 @@ applications:
   memory: 1024M
   host: my-java-app
   domain: jigarthanda.cfapps.io  
-  path: target/TestDrivenDevelopment.war
+  path: TestDrivenDevelopment/target/TestDrivenDevelopment.war
