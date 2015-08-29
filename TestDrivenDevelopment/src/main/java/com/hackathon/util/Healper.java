@@ -13,7 +13,7 @@ public class Healper {
 				EmailServiceHelper email = new EmailServiceHelper();
 				userComments.setDevGroupId("gdmmadhan@yahoo.in");
 				userComments.setUserMailId("rsnvinesh@gamil.com");
-				email.createJiraTicket(userComments);
+				//email.createJiraTicket(userComments);
 				updateCustomeComments.updateCustomeComments(userComments);
 			}
 		}catch(Exception e){
