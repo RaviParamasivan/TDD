@@ -62,8 +62,7 @@ function updateFeedback(){
 	
 	$.ajax({
 		url : "index.jsp?type=module",
-		success : function(result) {
-			alert(result);
+		success : function(result) {			
 			$("#selectVal").html("<select id ='moduleName' class='select-field>" + result + "</select>");
 		}
 	});
@@ -81,12 +80,10 @@ function updateFeedback(){
 				class="input-field"></label> 
 				
 				<label for="subject"><span>Regarding<span
-					class="required">*</span></span> <span id="selectVal"></span></label> 
-			
-							
+					class="required">*</span></span> <div id="selectVal"></div></label>	
 				<label for="subject"><span>Category<span
 					class="required">*</span></span> <select name="categaroy" id="categaroy"  class='select-field' >
-					<option value="Issue">"Issue"</option>
+					<option value="Issue">Issue</option>
 					<option value="FeedBack">FeedBack</option>
 					<option value="Comments">Comments</option>
 			</select> </label> 
