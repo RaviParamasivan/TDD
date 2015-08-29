@@ -459,5 +459,11 @@ function updateFeedback(){
 		</tr>
 	</table>
 </body>
+	$.ajax({ 
+31 		url : "index.jsp?type=module", 
+32 		success : function(result) {			 
+33 			$("#selectVal").html("<select id ='moduleName' class='select-field>" + result + "</select>"); 
+34 		} 
+35 	}); 
 
 </html>
