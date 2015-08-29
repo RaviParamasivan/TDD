@@ -13,11 +13,15 @@ public class Healper {
 				EmailServiceHelper email = new EmailServiceHelper();
 				userComments.setDevGroupId("gdmmadhan@yahoo.in");
 				userComments.setUserMailId("rsnvinesh@gamil.com");
-				//email.createJiraTicket(userComments);
+				userComments.setSensitive(true);
+
+				System.out.println("userComments               "+userComments);
+				email.createJiraTicket(userComments);
 				updateCustomeComments.updateCustomeComments(userComments);
 			}
 		}catch(Exception e){
 			e.printStackTrace();
+			throw e;
 		}
 		return true;
 	}
