@@ -43,7 +43,7 @@ public class EmailServiceHelper {
         multipart.addBodyPart(part2);
 
         message.setContent(multipart);
-        message.setFrom(new InternetAddress("rsnvinesh@gmail.com"));
+        message.setFrom(new InternetAddress(userComments.getUserMailId()));
         message.setSubject(userComments.getTitle());
         message.addRecipient(Message.RecipientType.TO, new InternetAddress(userComments.getDevGroupId()));
 
