@@ -3,4 +3,4 @@ applications:
   memory: 1024M
   host: jigarthanda
   domain: devops.io
-  path: TestDrivenDevelopment/target/TestDrivenDevelopment.war
+  path: target/TestDrivenDevelopment.war
