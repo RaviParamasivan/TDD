@@ -25,15 +25,7 @@ $(document).ready(function(){
 		if(_timer !== false){ clearTimeout(_timer); }           
 			_timer = setTimeout(function(){_scroll = true; 
 			_floatbox.animate({"top": "100px"},{easing: "linear"}, {duration: 500});}, 400); 
-	});	
-	
-	$.ajax({
-		url : "index.jsp?type=module",
-		success : function(result) {			
-			$("#selectVal").html("<select id ='moduleName' class='select-field>" + result + "</select>");
-		}
-	});
-	
+	});		
 });
 
 </script>
@@ -52,12 +44,19 @@ function updateFeedback(){
 			alert("Please enter the Description");
 			return false;
 		}
+		var isSensitive = false;
+		if($("#isSensitive").checked()){
+			isSensitive= true;
+		}else{
+			isSensitive= false;
+		}
 
 		var data = {
 			"title" : $("#title").val(),
 			"categaroy" : $("#categaroy").val(),
 			"moduleName" : $("#moduleName").val(),
-			"comments" : $("#comments").val()
+			"comments" : $("#comments").val(),
+			"isSensitive" : $('#checkbox').prop("checked")
 		};
 
 		$.ajax({
@@ -72,7 +71,7 @@ function updateFeedback(){
 </script>
 
 </head>
-<body>
+<body onload="getOrg()">
 	<div class="floating-form" id="contact_form">
 		<div class="contact-opener">FEEDBACK</div>
 		<div class="floating-form-heading">Please Contact Us</div>
@@ -93,7 +92,11 @@ function updateFeedback(){
 			<label for="field5"><span>Message <span
 					class="required">*</span></span> <textarea name="comments"
 					name="feedBackDesc" id="feedBackDesc" class="textarea-field"
-					required="true"></textarea> </label> <label> <span>&nbsp;</span><input
+					required="true"></textarea> </label>
+			
+			<label for="field6"><input type="checkbox" id="" name="" /> <span>Has Sensitive Info</span></label>
+					
+					 <label> <span>&nbsp;</span><input
 				type="submit" id="submit" value="Submit" onclick="updateFeedback()";></label>
 		</div>
 	</div>
@@ -459,11 +462,16 @@ function updateFeedback(){
 		</tr>
 	</table>
 </body>
-	$.ajax({ 
-31 		url : "index.jsp?type=module", 
-32 		success : function(result) {			 
-33 			$("#selectVal").html("<select id ='moduleName' class='select-field>" + result + "</select>"); 
-34 		} 
-35 	}); 
+<script>
+function getOrg(){
+	$.ajax({
+		url : "index.jsp?type=module",
+		success : function(result) {			
+			$("#selectVal").html("<select id ='moduleName' class='select-field>" + result + "</select>");
+		}
+	});
+}
+</script>
+
 
 </html>
