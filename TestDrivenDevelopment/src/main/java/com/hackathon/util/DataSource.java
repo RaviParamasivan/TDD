@@ -29,14 +29,16 @@ public class DataSource {
 		ResultSet resultSet = null;	
 		Statement statement = null;
 		try {
-			connect=readDataBase();			
+			connect=readDataBase();
+			System.out.println("connect   "+connect);
 			statement = connect.createStatement();
 			resultSet = statement.executeQuery("select * FROM jira_module");			
 			while (resultSet.next()) {
 				options+="<option select="+resultSet.getString("mail_id")+" >"+resultSet.getString("module_name")+"</option>";
 			}	
 		}catch(Exception e){
-			System.out.println("Exception while selecting the module:  "+e);
+			e.printStackTrace();
+			throw e;
 		}finally{
 			if (resultSet != null) {
 				resultSet.close();
