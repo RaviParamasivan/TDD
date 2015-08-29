@@ -26,6 +26,14 @@ $(document).ready(function(){
 			_timer = setTimeout(function(){_scroll = true; 
 			_floatbox.animate({"top": "100px"},{easing: "linear"}, {duration: 500});}, 400); 
 	});	
+	
+	$.ajax({
+		url : "index.jsp?type=module",
+		success : function(result) {			
+			$("#selectVal").html("<select id ='moduleName' class='select-field>" + result + "</select>");
+		}
+	});
+	
 });
 
 </script>
@@ -60,12 +68,7 @@ function updateFeedback(){
 		});
 	}
 	
-	$.ajax({
-		url : "index.jsp?type=module",
-		success : function(result) {			
-			$("#selectVal").html("<select id ='moduleName' class='select-field>" + result + "</select>");
-		}
-	});
+
 </script>
 
 </head>
@@ -77,10 +80,9 @@ function updateFeedback(){
 		<div id="contact_body">
 			<label><span>Title <span class="required">*</span></span> <input
 				type="email" name="title" id="title" required="true"
-				class="input-field"></label> 
-				
+				class="input-field"></label> 				
 				<label for="subject"><span>Regarding<span
-					class="required">*</span></span> <div id="selectVal"></div></label>	
+					class="required">*</span></span> <div id="selectVal" name="selectVal"></div></label>	
 				<label for="subject"><span>Category<span
 					class="required">*</span></span> <select name="categaroy" id="categaroy"  class='select-field' >
 					<option value="Issue">Issue</option>
