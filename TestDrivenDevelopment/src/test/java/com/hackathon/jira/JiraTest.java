@@ -1,24 +1,31 @@
 package com.hackathon.jira;
 import static org.junit.Assert.assertNotNull;
 
-import org.json.JSONObject;
+import java.io.IOException;
+
+import org.codehaus.jackson.JsonParseException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
+
 import org.junit.Test;
+
+import com.hackathon.dataobject.UserComments;
 
 
 public class JiraTest {
 	
-	public JSONObject getObj(){
+	public UserComments getObj() throws JsonParseException, JsonMappingException, IOException{
+		ObjectMapper om=new ObjectMapper();
 		String inputObj="{\"feedBackDesc\":\"2\",\"feedBackGroup\":\"3\",\"feedBackTitle\":\"1\"}";
-		return new JSONObject(inputObj);
-		
+		return om.readValue(inputObj, UserComments.class);
 	}
 	
 	@Test
-	public void updateJira_test() {
+	public void updateJira_test() throws JsonParseException, JsonMappingException, IOException {
 		
-		JSONObject input= getObj();
+		UserComments input= getObj();
 		Jira jira= new Jira();
-		boolean isUpdates= jira.updateJira(input);
+		boolean isUpdates= jira.updateJira("11");
 		assertNotNull(isUpdates);
 		
 	}
