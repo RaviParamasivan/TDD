@@ -1,11 +1,12 @@
 package com.hackathon.util;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.Date;
+
 
 import com.hackathon.dataobject.UserComments; 
 
@@ -65,7 +66,7 @@ public class DataSource {
 			preparedStatement.setString(5, userComments.isSensitive()==true?"Y":"N"); 
 			preparedStatement.setString(6, userComments.getUserMailId()); 
 			preparedStatement.setString(7, userComments.getDevGroupId()); 
-			preparedStatement.setDate(8, (java.sql.Date) new Date()); 
+			preparedStatement.setDate(8, new Date(0)); 
 			preparedStatement.executeUpdate();
 			connect.commit();
 		}catch (Exception e) {
