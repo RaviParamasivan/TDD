@@ -11,7 +11,7 @@
 <body>
 Feedback Title : <input type="text" id ="title"></br>
 Feedback Category : <select id ="categaroy"><option value="">Select ..</option><option value="issue">Issue</option><option value="Feedback">Feedback</option></select></br>
-Feedback moduleName : <select id ="moduleName"><option value="">Select ..</option><option value="Billing">Billing</option><option value="Ordering">Ordering</option><option value="Repair">Repair</option></select></br>
+Feedback moduleName : <div id="selectVal"></div></br>
 Feedback Description  : <input type="text" id ="comments"></br>
 <button onClick="updateFeedback()" name ="Submit">Submit</button>
 </body>
@@ -35,5 +35,10 @@ Feedback Description  : <input type="text" id ="comments"></br>
          alert(result);
      }});
 } 
+ $.ajax({url: "index.jsp?jsonStr="+JSON.stringify(data)+"&type=module", success: function(result){
+     //alert(result);
+     $("#selectVal").html("<select id ='moduleName'>"+result+"</select>");
+	 
+ }});
 </script>
 </html>
