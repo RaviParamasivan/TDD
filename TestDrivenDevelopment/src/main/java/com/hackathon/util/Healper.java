@@ -11,11 +11,13 @@ public class Healper {
 			if (isValidInput(userComments)) {
 				DataSource updateCustomeComments = new DataSource();
 				EmailServiceHelper email = new EmailServiceHelper();
+				userComments.setDevGroupId("gdmmadhan@yahoo.in");
+				userComments.setUserMailId("rsnvinesh@gamil.com");
 				email.createJiraTicket(userComments);
 				updateCustomeComments.updateCustomeComments(userComments);
 			}
 		}catch(Exception e){
-			System.out.println("Exception :"+ e);
+			e.printStackTrace();
 		}
 		return true;
 	}
