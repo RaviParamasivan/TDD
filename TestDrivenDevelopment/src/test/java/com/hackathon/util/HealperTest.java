@@ -2,19 +2,26 @@ package com.hackathon.util;
 
 import static org.junit.Assert.assertNotNull;
 
-import org.json.JSONObject;
+import java.io.IOException;
+
+import org.codehaus.jackson.JsonParseException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Test;
+
+import com.hackathon.dataobject.UserComments;
 
 public class HealperTest {
 	
-	public JSONObject getObj(){
+	public UserComments getObj() throws JsonParseException, JsonMappingException, IOException{
+		ObjectMapper om=new ObjectMapper();
 		String inputObj="{\"feedBackDesc\":\"2\",\"feedBackGroup\":\"3\",\"feedBackTitle\":\"1\"}";
-		return new JSONObject(inputObj);
+		return om.readValue(inputObj, UserComments.class);
 	}
 	
 	@Test
-	public void isValid_Test() {
-		JSONObject feedback= getObj();
+	public void isValid_Test() throws JsonParseException, JsonMappingException, IOException {
+		UserComments feedback= getObj();
 		assertNotNull(feedback);
 	}
 	
