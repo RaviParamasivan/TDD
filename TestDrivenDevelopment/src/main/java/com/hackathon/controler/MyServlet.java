@@ -24,7 +24,9 @@ public class MyServlet extends HttpServlet {
 				String type=request.getParameter("type");
 				if(type!= null && type.equals("module")){
 					DataSource ds= new DataSource();
-					pw.print(ds.getModuleName());
+					String options=ds.getModuleName();
+					System.out.println("options      "+options);
+					pw.print(options);
 				}else if(type!= null && type.equals("dashboard")){
 					
 				}else{
