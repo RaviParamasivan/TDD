@@ -1,5 +1,6 @@
 applications:
 - name: DEVOPES
   memory: 1024M
-  host: jigarthanda
-  path: TestDrivenDevelopment/target/TestDrivenDevelopment.war
+  host: my-java-app
+  domain: jigarthanda.cfapps.io  
+  path: target/TestDrivenDevelopment.war
