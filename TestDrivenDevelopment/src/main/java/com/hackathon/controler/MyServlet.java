@@ -22,7 +22,9 @@ public class MyServlet extends HttpServlet {
 			ObjectMapper objectMapper = new ObjectMapper();
 			if (request.getParameter("jsonStr") != null) {
 				String type=request.getParameter("type");
+				System.out.println("type   "+type);
 				if(type!= null && type.equals("module")){
+					System.out.println("Test ");
 					DataSource ds= new DataSource();
 					String options=ds.getModuleName();
 					System.out.println("options      "+options);
