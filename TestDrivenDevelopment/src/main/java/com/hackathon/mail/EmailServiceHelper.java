@@ -16,40 +16,47 @@ public class EmailServiceHelper {
    // private static final String SMTP_TO_USER = "gdmmadhan@yahoo.in";
     		
     		
-    public void createJiraTicket(UserComments userComments) throws Exception{
-        Properties props = new Properties();
-        props.put("mail.transport.protocol", "smtp");
-        props.put("mail.smtp.host", SMTP_HOST_NAME);
-        props.put("mail.smtp.port", 587);
-        props.put("mail.smtp.auth", "true");
+    public void createJiraTicket(UserComments userComments) {
+    	try{
 
-        Authenticator auth = new SMTPAuthenticator();
-        Session mailSession = Session.getDefaultInstance(props, auth);
-        // uncomment for debugging infos to stdout
-        // mailSession.setDebug(true);
-        Transport transport = mailSession.getTransport();
+            Properties props = new Properties();
+            props.put("mail.transport.protocol", "smtp");
+            props.put("mail.smtp.host", SMTP_HOST_NAME);
+            props.put("mail.smtp.port", 587);
+            props.put("mail.smtp.auth", "true");
 
-        MimeMessage message = new MimeMessage(mailSession);
+            Authenticator auth = new SMTPAuthenticator();
+            Session mailSession = Session.getDefaultInstance(props, auth);
+            // uncomment for debugging infos to stdout
+            // mailSession.setDebug(true);
+            Transport transport = mailSession.getTransport();
 
-        Multipart multipart = new MimeMultipart("alternative");
+            MimeMessage message = new MimeMessage(mailSession);
 
-        BodyPart part1 = new MimeBodyPart();
-        part1.setText("Title"+userComments.getTitle());
+            Multipart multipart = new MimeMultipart("alternative");
 
-        BodyPart part2 = new MimeBodyPart();
-        part2.setContent(userComments.getComments(), "text/html");
+            BodyPart part1 = new MimeBodyPart();
+            part1.setText("Title"+userComments.getTitle());
 
-        multipart.addBodyPart(part1);
-        multipart.addBodyPart(part2);
+            BodyPart part2 = new MimeBodyPart();
+            part2.setContent(userComments.getComments(), "text/html");
 
-        message.setContent(multipart);
-        message.setFrom(new InternetAddress(userComments.getUserMailId()));
-        message.setSubject(userComments.getTitle());
-        message.addRecipient(Message.RecipientType.TO, new InternetAddress(userComments.getDevGroupId()));
+            multipart.addBodyPart(part1);
+            multipart.addBodyPart(part2);
 
-        transport.connect();
-        transport.sendMessage(message,message.getRecipients(Message.RecipientType.TO));
-        transport.close();
+            message.setContent(multipart);
+            message.setFrom(new InternetAddress(userComments.getUserMailId()));
+            message.setSubject(userComments.getTitle());
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(userComments.getDevGroupId()));
+
+            transport.connect();
+            transport.sendMessage(message,message.getRecipients(Message.RecipientType.TO));
+            transport.close();
+        
+    		
+    	}catch (Exception e){
+    		e.printStackTrace();
+    	}
     }
 
     private class SMTPAuthenticator extends javax.mail.Authenticator {
