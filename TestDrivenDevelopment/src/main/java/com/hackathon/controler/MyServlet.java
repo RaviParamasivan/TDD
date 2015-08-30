@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import com.hackathon.dataobject.UserComments;
-import com.hackathon.util.DataSource;
+import com.hackathon.jira.ReadJira;
+import com.hackathon.jira.ReferenceClass;
 import com.hackathon.util.Healper;
 
 public class MyServlet extends HttpServlet {
@@ -23,20 +24,31 @@ public class MyServlet extends HttpServlet {
 
 			String type = request.getParameter("type");
 			System.out.println("type   " + type);
+			
 			if (type != null && type.equals("module")) {
-				System.out.println("Test ");
+/*
 				DataSource ds = new DataSource();
 				String options = ds.getModuleName();
-				System.out.println("options      " + options);
-				pw.print(options);
+				pw.print(options);*/
+				try{
+					ReadJira jira= new ReadJira();
+					jira.editJiraTicket();
+				}catch(Exception e){
+					e.printStackTrace();
+				}
+				
+				ReferenceClass x= new ReferenceClass();
+				x.ListOfProjects();
+
+				
 			} else if (type != null && type.equals("dashboard")) {
 
 			} else {
 				if (request.getParameter("jsonStr") != null) {
 					String userComments = request.getParameter("jsonStr");
-					System.out.println("userComments          " + userComments);
+					System.out.println("userComments    in servlet      " + userComments);
 					UserComments comments = objectMapper.readValue(userComments, UserComments.class);
-
+					System.out.println("comments    in servlet      " + comments);
 					Healper helper = new Healper();
 					if (helper.updateUserComments(comments)) {
 						pw.print("User comments update successfull");
