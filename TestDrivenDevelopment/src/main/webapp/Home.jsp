@@ -34,7 +34,7 @@ $(document).ready(function(){
 function updateFeedback(){
 	 
 
-	if ($("#feedBackTitle").val() == "") {
+		if ($("#title").val() == "") {
 			alert("Please enter the title");
 			return false;
 		} else if ($("#feedBackTitle").val() == "") {
@@ -44,12 +44,7 @@ function updateFeedback(){
 			alert("Please enter the Description");
 			return false;
 		}
-		var isSensitive = false;
-		if($("#isSensitive").checked()){
-			isSensitive= true;
-		}else{
-			isSensitive= false;
-		}
+
 
 		var data = {
 			"title" : $("#title").val(),
@@ -81,11 +76,11 @@ function updateFeedback(){
 				type="email" name="title" id="title" required="true"
 				class="input-field"></label> 				
 				<label for="subject"><span>Regarding<span
-					class="required">*</span></span> <div id="selectVal" name="selectVal">vv</div></label>	
+					class="required">*</span></span> <div id="selectVal" name="selectVal"></div></label>	
 				<label for="subject"><span>Category<span
-					class="required">*</span></span> <select name="categaroy" id="categaroy"  class='select-field' >
+					class="required">*</span></span> <select   style='width:400px' name="categaroy" id="categaroy"  class='select-field' >
 					<option value="Issue">Issue</option>
-					<option value="FeedBack">FeedBack</option>
+					<option value="Suggestion">Suggestion </option>
 					<option value="Comments">Comments</option>
 			</select> </label> 
 			
@@ -467,7 +462,7 @@ function getOrg(){
 	$.ajax({
 		url : "index.jsp?type=module",
 		success : function(result) {
-			document.getElementById("selectVal").innerHTML="<select id ='moduleName' class='select-field'>" + result + "</select>";
+			document.getElementById("selectVal").innerHTML="<select style='width:400px' id ='moduleName' class='select-field'>" + result + "</select>";
 		}
 	});
 }
