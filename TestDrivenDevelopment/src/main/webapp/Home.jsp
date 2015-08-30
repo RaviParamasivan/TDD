@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Home</title>
 <script  src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<link rel="Stylesheet" href="css/home.css" type="text/css" />
+<link rel="Stylesheet" href="home.css" type="text/css" />
 <script type="text/javascript">
 $(document).ready(function(){ 
 
