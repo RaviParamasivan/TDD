@@ -37,7 +37,7 @@ function updateFeedback(){
 		if ($("#title").val() == "") {
 			alert("Please enter the title");
 			return false;
-		} else if ($("#feedBackTitle").val() == "") {
+		} else if ($("#categaroy").val() == "") {
 			alert("Please select the category");
 			return false;
 		} else if ($("#feedBackTitle").val() == "") {
@@ -86,7 +86,7 @@ function updateFeedback(){
 			
 			<label for="field5"><span>Message <span
 					class="required">*</span></span> <textarea name="comments"
-					name="feedBackDesc" id="feedBackDesc" class="textarea-field"
+					name="feedBackDesc" id="feedBackDesc" style="height: 60px" class="textarea-field"
 					required="true"></textarea> </label>
 			
 			<label for="field6"><input type="checkbox" id="" name="" /> <strong>Has Sensitive Info</strong></label>
