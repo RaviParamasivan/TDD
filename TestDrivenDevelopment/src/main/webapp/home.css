@@ -274,7 +274,7 @@ ul.nav-justified { padding-left:0px}
 }
 .floating-form label{
     display: block;
-    margin: 0px 0px 15px 0px;
+    margin: 0px 0px 2px 0px;
 }
 .floating-form label > span{
     width: 70px;
