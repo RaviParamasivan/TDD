@@ -467,13 +467,7 @@ function getOrg(){
 	$.ajax({
 		url : "index.jsp?type=module",
 		success : function(result) {
-			alert($("#selectVal").html());
-			alert("before");
-			$("#selectVal").html("<select id ='moduleName' class='select-field>" + result + "</select>");
-			alert("After");
-			$("#selectVal").text("<select id ='moduleName' class='select-field>" + result + "</select>");
-			alert("final");
-			
+			document.getElementById("selectVal").innerHTML="<select id ='moduleName' class='select-field>" + result + "</select>";
 		}
 	});
 }
