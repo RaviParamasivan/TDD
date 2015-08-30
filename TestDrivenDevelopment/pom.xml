@@ -8,7 +8,18 @@
 	<name>DevOpsHack Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
-
+	<repositories>
+	  <repository>
+	    <id>central</id>
+	    <name>Atlassian Public Repository</name>
+	    <layout>default</layout>
+	    <url>http://maven.atlassian.com/public</url>
+	    <snapshots>
+	      <enabled>false</enabled>
+	    </snapshots>
+	  </repository>
+	</repositories>
+	
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -48,17 +59,7 @@
 		</dependency>
 	</dependencies>
 
-	<repositories>
-	  <repository>
-	    <id>central</id>
-	    <name>Atlassian Public Repository</name>
-	    <layout>default</layout>
-	    <url>http://maven.atlassian.com/public</url>
-	    <snapshots>
-	      <enabled>false</enabled>
-	    </snapshots>
-	  </repository>
-	</repositories>
+
 
 	<build>
 		<finalName>TestDrivenDevelopment</finalName>
