@@ -7,9 +7,13 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>DevOpsHack Maven Webapp</name>
 	<url>http://maven.apache.org</url>
-
-	<repositories>
-	  <repository>
+<repositories>
+    <repository>
+      <id>my-repo1</id>
+      <name>default maven</name>
+      <url>http://repo.maven.apache.org/maven2</url>
+    </repository>
+    <repository>
 	    <id>central</id>
 	    <name>Atlassian Public Repository</name>
 	    <layout>default</layout>
@@ -18,8 +22,9 @@
 	      <enabled>false</enabled>
 	    </snapshots>
 	  </repository>
-	</repositories>
-	
+  </repositories>
+  
+  
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
