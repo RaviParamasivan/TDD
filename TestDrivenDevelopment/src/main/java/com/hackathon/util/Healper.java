@@ -11,12 +11,10 @@ public class Healper {
 			if (isValidInput(userComments)) {
 				DataSource updateCustomeComments = new DataSource();
 				EmailServiceHelper email = new EmailServiceHelper();
-				userComments.setDevGroupId("gdmmadhan@yahoo.in");
-				userComments.setUserMailId("rsnvinesh@gamil.com");
 				userComments.setSensitive(true);
 
-				System.out.println("userComments          >     "+userComments);
-				//email.createJiraTicket(userComments);
+				System.out.println("userComments     1     >     "+userComments);
+				email.createJiraTicket(userComments);
 				updateCustomeComments.updateCustomeComments(userComments);
 			}
 		}catch(Exception e){
@@ -37,6 +35,9 @@ public class Healper {
 				isValid = false;
 			}
 			if (Util.isNull(userComments.getModuleName())) {
+				isValid = false;
+			}
+			if (Util.isNull(userComments.getTitle())) {
 				isValid = false;
 			}
 		}
