@@ -47,16 +47,17 @@ function updateFeedback(){
 			return false;
 		}
 
-
 		var data = {
-			"title" : $("#title").val(),
+			"title" : $("#title").val(),			
 			"categaroy" : $("#categaroy").val(),
-			"moduleName" : $("#moduleName").val(),
+			"moduleName" : $( "#selectVal option:selected" ).text(),
 			"comments" : $("#comments").val(),
-			"isSensitive" : $('#checkbox').prop("checked")
+			"isSensitive" : $('#checkbox').prop("checked"),
+			"devGroupId" : $('#selectVal').val(),
+			"userMailId" : "rsnvinesh@gmail.com"			
 		};
 
-		$.ajax({
+	$.ajax({
 			url : "index.jsp?jsonStr=" + JSON.stringify(data),
 			success : function(result) {
 				$("#contact_results").show();
@@ -88,7 +89,7 @@ function updateFeedback(){
 			
 			<label for="field5"><span>Message <span
 					class="required">*</span></span> <textarea name="comments"
-					name="feedBackDesc" id="feedBackDesc" style="height: 60px" class="textarea-field"
+					name="comments" id="comments" style="height: 60px" class="textarea-field"
 					required="true"></textarea> </label>
 			
 			<label for="field6"><input type="checkbox" id="" name="" /> <strong>Has Sensitive Info</strong></label>
