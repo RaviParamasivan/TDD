@@ -466,8 +466,10 @@ function updateFeedback(){
 function getOrg(){
 	$.ajax({
 		url : "index.jsp?type=module",
-		success : function(result) {			
+		success : function(result) {	
+			alert("before");
 			$("#selectVal").html("<select id ='moduleName' class='select-field>" + result + "</select>");
+			alert("After");
 		}
 	});
 }
