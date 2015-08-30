@@ -57,7 +57,50 @@
 			<artifactId>httpclient</artifactId>
 			<version>4.5</version>
 		</dependency>
+		 <dependency>
+        <groupId>com.atlassian.jira</groupId>
+        <artifactId>jira-api</artifactId>
+        <version>${jira-api.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>com.atlassian.jira</groupId>
+        <artifactId>jira-rest-java-client-core</artifactId>
+        <version>${jira-rest-java-client-core.version}</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpclient</artifactId>
+        <version>${httpcore.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpcore</artifactId>
+        <version>${httpcore.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpcore-nio</artifactId>
+        <version>${httpcore.version}</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.pojomatic</groupId>
+        <artifactId>pojomatic</artifactId>
+        <version>${pojomatic.version}</version>
+    </dependency>
+   
 	</dependencies>
+	
+	<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>1.8</java.version>
+    <pojomatic.version>2.0.1</pojomatic.version>
+    <jira-api.version>6.1.1</jira-api.version>
+    <jira-rest-java-client-core.version>3.0.0</jira-rest-java-client-core.version>
+    <httpcore.version>4.4.1</httpcore.version>
+    <commons-io.version>2.4</commons-io.version>
+</properties>
 
 
 
