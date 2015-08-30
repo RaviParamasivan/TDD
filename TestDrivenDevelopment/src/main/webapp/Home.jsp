@@ -75,7 +75,7 @@ function updateFeedback(){
 	<div class="floating-form" id="contact_form">
 		<div class="contact-opener">FEEDBACK</div>
 		<div class="floating-form-heading">Please Contact Us</div>
-		<div id="contact_results" style="display:none">Thank you for your feedback.</div>
+		<div style="display:none" id="contact_results">Thank you for your feedback.</div>
 		<div id="contact_body">
 			<label><span>Title <span class="required">*</span></span> <input
 				type="email" name="title" id="title" required="true"
