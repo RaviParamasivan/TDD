@@ -32,15 +32,17 @@ $(document).ready(function(){
 
 <script>
 function updateFeedback(){
-	 
 
 		if ($("#title").val() == "") {
-			alert("Please enter the title");
+			alert("Please enter the Title");
+			return false;
+		}else if ($("#selectVal").val() == "") {
+			alert("Please select the Regarding");
 			return false;
 		} else if ($("#categaroy").val() == "") {
 			alert("Please select the category");
 			return false;
-		} else if ($("#feedBackTitle").val() == "") {
+		} else if ($("#comments").val() == "") {
 			alert("Please enter the Description");
 			return false;
 		}
