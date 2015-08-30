@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Home</title>
 <script  src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<link rel="Stylesheet" href="home.css" type="text/css" />
+<link rel="Stylesheet" href="css/home.css" type="text/css" />
 <script type="text/javascript">
 $(document).ready(function(){ 
 
@@ -36,7 +36,7 @@ function updateFeedback(){
 		if ($("#title").val() == "") {
 			alert("Please enter the Title");
 			return false;
-		}else if ($("#selectVal").val() == "") {
+		}else if ($("#moduleName").val() == "") {
 			alert("Please select the Regarding");
 			return false;
 		} else if ($("#categaroy").val() == "") {
@@ -50,10 +50,10 @@ function updateFeedback(){
 		var data = {
 			"title" : $("#title").val(),			
 			"categaroy" : $("#categaroy").val(),
-			"moduleName" : $( "#selectVal option:selected" ).text(),
+			"moduleName" : $( "#moduleName option:selected" ).text(),
 			"comments" : $("#comments").val(),
 			"isSensitive" : $('#checkbox').prop("checked"),
-			"devGroupId" : $('#selectVal').val(),
+			"devGroupId" : $('#moduleName').val(),
 			"userMailId" : "rsnvinesh@gmail.com"			
 		};
 
